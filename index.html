@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="hero">
+        <div class="calendar">
+            <div class="left">
+                <p id="date">01</p>
+                <p id="day">Sunday</p>
+            </div>
+            <div class="right">
+                <p id="month">January</p>
+                <p id="year">2023</p>
+            </div>
+            <div id="time">показать время</div>
+        </div>
+    </div>
+    
+    <script>
+        let clock =()=> {
+    let date = new Date()
+    let month_num = date.getMonth()
+    let day = date.getDate()
+    let hours = date.getHours()
+    let minutes = date.getMinutes()
+    let second = date.getSeconds()
+
+    if(hours<9)hours="0"+hours
+    if(minutes<9)minutes="0"+minutes
+    if(second<10)second="0"+second
+   
+   
+    let date_time =hours+":"+minutes+":"+second
+    
+
+    let element = document.getElementById('time').innerHTML =date_time
+    setTimeout(() => {
+        clock()
+    }, 1000);
+}
+
+clock()
+
+
+        const date = document.getElementById('date')
+        const day = document.getElementById('day')
+        const month = document.getElementById('month')
+        const year = document.getElementById('year')
+
+        const today = new Date()
+
+        const weekDays = ["Понедельник","Вторник","Среда","Четверг","Пятница","Суббота",""]
+        const allMonth = ['Январь','Февраль','Апрель','Март','Май','Июнь','Июль','Август','Сентябрь','Октябрь','Ноябр','Декабрь']
+        date.innerHTML = today.getDate()
+        day.innerHTML = weekDays[today.getDay()-1]
+        month.innerHTML = allMonth[today.getMonth()]
+        year.innerHTML = today.getFullYear()
+
+        // console.log(weekDays[0])
+    </script>
+</body>
+
+</html>
